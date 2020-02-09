@@ -8,10 +8,10 @@
                 <div class="card-header">Admin Dashboard</div>
 
                 <div class="card-body">
-                    You Are Logged in as an Admin
+                     You are logged in as a Admin
                     <br>
                     <br>
-                    <a href='https://www.freecodecamp.org/'><button class="btn btn-danger">Access Admin Profile</button></a>
+                     <a href='https://www.freecodecamp.org/'><button class="btn btn-danger">Access Admin Profile</button></a>
                 </div>
             </div>
         </div>

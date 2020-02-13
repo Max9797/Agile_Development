@@ -2,15 +2,12 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
-use App\Admin;
-use App\Owner;
 use App\Http\Controllers\Controller;
+use App\Providers\RouteServiceProvider;
+use App\User;
+use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Foundation\Auth\RegistersUsers;
-use Illuminate\Http\Request;
-use App\Providers\RouteServiceProvider;
 
 class RegisterController extends Controller
 {
@@ -42,8 +39,6 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
-        $this->middleware('guest:admin');
-        $this->middleware('guest:owner');
     }
 
     /**
@@ -61,16 +56,6 @@ class RegisterController extends Controller
         ]);
     }
 
-    public function showAdminRegisterForm()
-    {
-        return view('auth.register', ['url' => 'admin']);
-    }
-
-    public function showOwnerRegisterForm()
-    {
-        return view('auth.register', ['url' => 'owner']);
-    }
-
     /**
      * Create a new user instance after a valid registration.
      *
@@ -85,28 +70,4 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
     }
-
-    protected function createAdmin(Request $request)
-    {
-        $this->validator($request->all())->validate();
-        Admin::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
-        return redirect()->intended('login/admin');
-    }
-
-    protected function createOwner(Request $request)
-    {
-        $this->validator($request->all())->validate();
-        Owner::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
-        return redirect()->intended('login/owner');
-    }
-    
-
 }

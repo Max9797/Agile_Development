@@ -44,16 +44,7 @@ return [
         'api' => [
             'driver' => 'token',
             'provider' => 'users',
-        ],
-
-        'admin' => [
-            'driver' => 'session',
-            'provider' => 'admins',
-        ],
-        
-        'owner' => [
-            'driver' => 'session',
-            'provider' => 'owners',
+            'hash' => false,
         ],
     ],
 
@@ -73,20 +64,11 @@ return [
     | Supported: "database", "eloquent"
     |
     */
+
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\User::class,
-        ],
-
-        'admins' => [
-            'driver' => 'eloquent',
-            'model' => App\Admin::class,
-        ],
-
-        'owners' => [
-            'driver' => 'eloquent',
-            'model' => App\Owner::class,
         ],
 
         // 'users' => [

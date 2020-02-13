@@ -1,20 +1,21 @@
-@extends('layouts.auth')
+@extends('layouts.app')
+
+@extends('adminlte::page')
+
+@section('title', 'Dashboard')
+
+@section('content_header')
+    <h1>Dashboard</h1>
+@stop
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Student Dashboard</div>
+    <p>Welcome to this beautiful admin panel.</p>
+@stop
 
-                <div class="card-body">
-                     You are logged in as a Student
-                    <br>
-                    <br>
-                     <a href='https://www.freecodecamp.org/'><button class="btn btn-danger">Access Student Profile</button></a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-@endsection
+@section('css')
+    <link rel="stylesheet" href="/css/admin_custom.css">
+@stop
+
+@section('js')
+    <script> console.log('Hi!'); </script>
+@stop

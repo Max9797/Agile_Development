@@ -11,17 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/','PropertiesController@display');
+
 
 Route::get('test', function () {
     return view('test');
 });
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/property','PropertyController@index');
 
@@ -36,3 +33,13 @@ Route::put('/updatepropertydetails/{id}','PropertyController@update');
 Route::get('/deleteproperty/{id}','PropertyController@delete');
 
 Route::get('/viewproperty/{id}','PropertyController@displayProperty');
+
+Auth::routes();
+
+
+Route::get('/home', 'PropertiesController@displayHome')->name('home');
+
+Route::get('/search-prop/{city}/{price}/{gender}','PropertiesController@search');
+
+Auth::routes();
+

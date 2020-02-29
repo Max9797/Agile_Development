@@ -13,11 +13,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <meta name="description" content="Interior-Design-Responsive-Website-Templates-Edge">
     <meta name="author" content="webThemez.com">
     <title>Home - Flat Responsive Bootstrap Theme</title>
-    <link rel="favicon" href="../../assets/images/favicon.png">
+    <link rel="favicon" href={{ URL::asset('public/assets/images/favicon.png') }}>
     <link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
-    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../assets/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../../assets/css/bootstrap-theme.css" media="screen">
+    <link rel="stylesheet" href={{ URL::asset('assets/css/bootstrap.min.css') }}>
+    <link rel="stylesheet" href={{ URL::asset('assets/css/font-awesome.min.css') }}>
+    <link rel="stylesheet" href={{ URL::asset('assets/css/bootstrap-theme.css') }} media="screen">
     <link rel="stylesheet" href="../../assets/css/style.css">
     <link rel='stylesheet' id='camera-css'  href='../../assets/css/camera.css' type='text/css' media='all'>
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -119,36 +119,35 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-
                 <h2 class="text-center text-uppercase last">Search for your desired house to rent</h2>
-
                 <p class="text-center last">You may search based on gender, city and range</p>
-
                 <div class="search-panel">
-                    <form class="form-inline" role="form">
+                    <form class="form-inline" method="get" action="{{ url('search-prop/city/price/gender') }}" role="form">
                         <div class="form-group">
-                            <input type="text" class="form-control" id="city" placeholder="City" autocomplete="off">
-                        </div>
-                        <div class="form-group hidden-xs adv">
-                            <div class="input-group">
-                                <div class="input-group-addon">$</div>
-                                <input class="form-control price" type="text" placeholder="From">
-                            </div>
-                        </div>
-                        <div class="form-group hidden-xs adv">
-                            <div class="input-group">
-                                <div class="input-group-addon">$</div>
-                                <input class="form-control price" type="text" placeholder="To">
-                            </div>
-                        </div>
-                        <div class="form-group hidden-xs adv">
-                            <div class="checkbox custom-checkbox"><label><input type="checkbox"><span class="fa fa-check"></span> For Rent</label></div>
-                        </div>
-                        <div class="form-group hidden-xs adv">
-                            <div class="checkbox custom-checkbox"><label><input type="checkbox"><span class="fa fa-check"></span> For Sale</label></div>
+                        <select name="city" class="form-control" id="city" placeholder="City">
+                          <option value="bayan lepas">Bayan Lepas</option>
+                          <option value="sungai ara">Sungai Ara</option>
+                          <option value="georgetown">Georgetown</option>
+                          <option value="bayan baru">Bayan Baru</option>
+                        </select>
                         </div>
                         <div class="form-group">
-                            <a href="" class="btn btnsearch">Search</a>
+                        <select name="price" class="form-control" id="price" placeholder="Price Range">
+                          <option value="200">200</option>
+                          <option value="300">300</option>
+                          <option value="400">400</option>
+                        </select>
+                        </div>
+                        <div class="form-group">
+                        <select name="gender" class="form-control" id="gender" placeholder="Gender">
+                          <option value="male">Male</option>
+                          <option value="female">Female</option>
+                        </select>
+                        </div>
+                        <div class="form-group">
+                            <a href="search-prop/1">
+                                <button class="btn btnsearch">Search</button>
+                            </a>  
                         </div>
                     </form>
                 </div>
@@ -157,35 +156,50 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     </div>
 </div>
 
-<div class="row h-100">
-    <div class="col-sm-12 my-auto">
+<div class="row h-10">
+    <div class="col-sm-12">
         <div class="card">
 
             <!-- /.card-header -->
             <div class="card-body">
-
-                <table class="table table-bordered">
+                <table class="table table-bordered mt-10">
                     <thead>
                     <tr>
                         <th width="5%">No.</th>
-                        <th>Gender</th>
+                        <th>Name</th>
+                        <th>Image</th>
                         <th>City</th>
+                        <th>Gender</th>
                         <th>Price</th>
                         <th width="10%"></th>
                     </tr>
                     </thead>
                     <tbody>
+                    @foreach($properties as $i)
                     <tr>
-                        <td>1.</td>
-                        <td>Male</td>
+                  
+                        <td>{{ $i->id}}</td>
+                        <td>{{ $i->property_name}}</td>
                         <td>
-                           Bayan Lepas
+                                @if($i->image && $i->image != '')
+                                <img src = "{{ asset('assets/property-img/' . $i->image)}}" width = "100px;" height = "100px;" alt = "Image">
+                                @else
+                                <p>No Image</p>
+                                @endif
                         </td>
-                        <td>RM200.00</td>
+                        <td>
+                        {{ $i->city}}
+                        </td>
+                        <td>
+                        {{ $i->gender}}
+                        </td>
+                        <td>{{ $i->price}}</td>
                         <td ><button type="button" class="btn btn-block btn-success">More Info</button>
                         <button type="button" class="btn btn-block btn-success">Book</button>
                         </td>
                     </tr>
+                    @endforeach
+
                     </tbody>
                 </table>
             </div>
@@ -262,6 +276,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         });
 
     });
+
+
+    var e1 = document.getElementById("city");
+    var e2 = document.getElementById("price");
+    var city = e1.options[e.selectedIndex].value;
+    var price = e2.options[e.selectedIndex].value;
+    console.log("city ,"+ city)
+    console.log("price ,"+ price)
+
 </script>
 
 </body>

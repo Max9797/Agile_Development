@@ -1,17 +1,18 @@
 <?php
 
-$city = $_GET['city'];
-$price = $_GET['price'];
-// $finalResult = DB::select("
-//     SELECT  id,
-//             property_name,
-//             image,
-//             gender,
-//             city,
-//             price ")
-//     FROM property where city = $location;
-    $FETCH_func_prop = "SELECT * FROM property WHERE city = $city";
-    $result_prop = mysqli_query($conn,$FETCH_func_prop);
+// $city = $_GET['city'];
+// $price = $_GET['price'];
+// // $finalResult = DB::select("
+// //     SELECT  id,
+// //             property_name,
+// //             image,
+// //             gender,
+// //             city,
+// //             price ")
+// //     FROM property where city = $location;
+//     $FETCH_func_prop = "SELECT * FROM property WHERE city = $city AND price = $price";
+//     $result_prop = mysqli_query($conn,$FETCH_func_prop);
+
 ?>
 
 
@@ -132,22 +133,26 @@ $price = $_GET['price'];
                 <h2 class="text-center text-uppercase last">Search for your desired house to rent</h2>
                 <p class="text-center last">You may search based on gender, city and range</p>
                 <div class="search-panel">
-                    <form class="form-inline" method="post" action="welcome" role="form">
+                <form class="form-inline" method="get" action="{{ url('search-prop/city/price') }}" role="form">
                         <div class="form-group">
-                            <input type="text" class="form-control" id="city" placeholder="City" autocomplete="off">
-                        </div>
-                        <div class="form-group hidden-xs adv">
-                            <div class="input-group">
-                                <input class="form-control price" type="text" placeholder="Gender">
-                            </div>
-                        </div>
-                        <div class="form-group hidden-xs adv">
-                            <div class="input-group">
-                                <input class="form-control price" type="text" placeholder="Price">
-                            </div>
+                        <select name="city" class="form-control" id="city" placeholder="City">
+                          <option value="bayan lepas">Bayan Lepas</option>
+                          <option value="sungai ara">Sungai Ara</option>
+                          <option value="georgetown">Georgetown</option>
+                          <option value="bayan baru">Bayan Baru</option>
+                        </select>
                         </div>
                         <div class="form-group">
-                            <a href="/1" class="btn btnsearch">Search</a>
+                        <select name="price" class="form-control" id="price" placeholder="Price Range">
+                          <option value="200">200</option>
+                          <option value="300">300</option>
+                          <option value="400">400</option>
+                        </select>
+                        </div>
+                        <div class="form-group">
+                            <a href="search-prop/1">
+                                <button class="btn btnsearch">Search</button>
+                            </a>  
                         </div>
                     </form>
                 </div>
@@ -175,7 +180,19 @@ $price = $_GET['price'];
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($result_prop as $i)
+                    <?php
+
+                    // echo json_encode($properties);
+                    $prop = array($properties);
+                    echo json_decode($properties);
+                    // foreach($properties as $p){
+                    //         print "$p\n";
+                    // }
+
+                    ?>
+
+
+                   {{--@foreach($properties as $i)
                     <tr>
                   
                         <td>{{ $i->id}}</td>
@@ -199,7 +216,7 @@ $price = $_GET['price'];
                         </td>
                     </tr>
                     @endforeach
-
+--}}
                     </tbody>
                 </table>
             </div>

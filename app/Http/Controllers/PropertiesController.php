@@ -14,9 +14,13 @@ class PropertiesController extends Controller
         return view('welcome')->with('properties', $properties);
     }
 
-    public function search($city = null,$price = null){
-        $properties = Property::find($city,$price);
-        return view('search-prop',compact('city','price'));
+    public function search(Request $request){
+        // $properties = Property::find([$city,$price]);
+        $city = $request->query('city');
+        $price = $request->query('price');
+        // return 'city = '.$city. ' price='.$price;
+        $properties = Property::where('city',$city)->where('price',$price)->first();
+        return view('search-prop')->with('properties',$properties);
     }
 
     public function displayHome(){

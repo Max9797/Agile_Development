@@ -25,8 +25,8 @@ Route::get('/home', 'PropertiesController@displayHome')->name('home');
 
 Route::get('/search-prop/{city}/{price}','PropertiesController@search');
 
-Route::get('full-text-search', 'Full_text_search_Controller@index');
+// Route::get('full-text-search', 'Full_text_search_Controller@index');
 
-Route::post('full-text-search/action', 'Full_text_search_Controller@action')->name('full-text-search.action');
+// Route::post('full-text-search/action', 'Full_text_search_Controller@action')->name('full-text-search.action');
 
-Route::get('full-text-search/normal-search', 'Full_text_search_Controller@normal_search')->name('full-text-search.normal-search');
+// Route::get('full-text-search/normal-search', 'Full_text_search_Controller@normal_search')->name('full-text-search.normal-search');

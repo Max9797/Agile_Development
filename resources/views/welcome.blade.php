@@ -122,20 +122,20 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <h2 class="text-center text-uppercase last">Search for your desired house to rent</h2>
                 <p class="text-center last">You may search based on gender, city and range</p>
                 <div class="search-panel">
-                    <form class="form-inline" method="post" action="{{ url('search-prop/{city}/{price}') }}" role="form">
+                    <form class="form-inline" method="get" action="{{ url('search-prop/city/price') }}" role="form">
                         <div class="form-group">
                         <select name="city" class="form-control" id="city" placeholder="City">
-                          <option value="1">Bayan Lepas</option>
-                          <option value="2">Sungai Ara</option>
-                          <option value="3">Georgetown</option>
-                          <option value="4">Bayan Baru</option>
+                          <option value="bayan lepas">Bayan Lepas</option>
+                          <option value="sungai ara">Sungai Ara</option>
+                          <option value="georgetown">Georgetown</option>
+                          <option value="bayan baru">Bayan Baru</option>
                         </select>
                         </div>
                         <div class="form-group">
                         <select name="price" class="form-control" id="price" placeholder="Price Range">
-                          <option value="1">200-300</option>
-                          <option value="2">300-400</option>
-                          <option value="3">400-500</option>
+                          <option value="200">200</option>
+                          <option value="300">300</option>
+                          <option value="400">400</option>
                         </select>
                         </div>
                         <div class="form-group">
@@ -270,6 +270,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         });
 
     });
+
+
+    var e1 = document.getElementById("city");
+    var e2 = document.getElementById("price");
+    var city = e1.options[e.selectedIndex].value;
+    var price = e2.options[e.selectedIndex].value;
+    console.log("city ,"+ city)
+    console.log("price ,"+ price)
+
 </script>
 
 </body>

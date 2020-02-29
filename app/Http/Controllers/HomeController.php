@@ -25,4 +25,10 @@ class HomeController extends Controller
     {
         return view('home');
     }
+<<<<<<< HEAD
+=======
+    public function updateRole(Request $request){
+
+    }
+>>>>>>> b3bc68724e90acad2e36947ae50ab4917c87c3e2
 }

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 {{-- resources/views/admin/dashboard.blade.php --}}
+=======
+@extends('layouts.app')
+>>>>>>> b3bc68724e90acad2e36947ae50ab4917c87c3e2
 
 @extends('adminlte::page')
 
@@ -9,6 +13,7 @@
 @stop
 
 @section('content')
+<<<<<<< HEAD
     <p>List Of Your Property</p>
     
 <div class="row h-10">
@@ -65,6 +70,9 @@
         </div>
     </div>
 </div>
+=======
+    <p>Welcome to this beautiful admin panel.</p>
+>>>>>>> b3bc68724e90acad2e36947ae50ab4917c87c3e2
 @stop
 
 @section('css')
@@ -73,4 +81,8 @@
 
 @section('js')
     <script> console.log('Hi!'); </script>
+<<<<<<< HEAD
 @stop
+=======
+@stop
+>>>>>>> b3bc68724e90acad2e36947ae50ab4917c87c3e2

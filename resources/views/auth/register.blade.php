@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-@extends('adminlte::register')
-=======
 @extends('layouts.app')
 
 @section('content')
@@ -93,4 +90,3 @@
 </div>
 @endsection
 
->>>>>>> b3bc68724e90acad2e36947ae50ab4917c87c3e2

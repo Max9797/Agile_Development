@@ -81,7 +81,6 @@ return [
             'model' => App\User::class,
         ],
 
-<<<<<<< HEAD
         'admins' => [
             'driver' => 'eloquent',
             'model' => App\Admin::class,
@@ -91,12 +90,6 @@ return [
             'driver' => 'eloquent',
             'model' => App\Student::class,
         ],
-=======
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
->>>>>>> b3bc68724e90acad2e36947ae50ab4917c87c3e2
     ],
 
     /*

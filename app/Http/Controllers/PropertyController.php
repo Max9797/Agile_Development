@@ -74,6 +74,11 @@ class PropertyController extends Controller
         
         return view('propertyform')->with('properties', $properties);
     }
+    public function displayProperty($id){
+        $properties = Property_Model::where('id',$id)->first();
+        
+        return view('propertyview')->with('properties', $properties);
+    }
 
     public function edit($id){
         $properties = Property_Model::find($id);
@@ -129,8 +134,6 @@ class PropertyController extends Controller
             $filename = time() . '.' . $extension;
             $file->move('uploads/property/', $filename);
             $property->image = $filename;
-        }else{
-            $property->image ='';
         }
 
         $property->save();

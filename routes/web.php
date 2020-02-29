@@ -34,3 +34,5 @@ Route::get('/editproperty/{id}','PropertyController@edit');
 Route::put('/updatepropertydetails/{id}','PropertyController@update');
 
 Route::get('/deleteproperty/{id}','PropertyController@delete');
+
+Route::get('/viewproperty/{id}','PropertyController@displayProperty');

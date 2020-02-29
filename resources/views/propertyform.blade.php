@@ -43,8 +43,8 @@
                             <th> {{$item->city }}</th>
                             <th> {{$item->price }}</th>
                             <th> {{$item->available_bed }}</th>
-                            <th> <a href="/editproperty/{{ $item->id }}" class ="btn btn-success"> View </a><br>
-                                    <a href="/editproperty/{{ $item->id }}" class ="btn btn-info"> Edit </a><br>
+                            <th> <a href="/viewproperty/{{ $item->id }}" class ="btn btn-success"> View </a><br>
+                                    <a href="/editproperty/{{ $item->id }}" class ="btn btn-warning"> Edit </a><br>
                                     <a href="/deleteproperty/{{ $item->id }}" class ="btn btn-danger">Delete </a>
                             </th>
                         </tr>

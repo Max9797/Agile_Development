@@ -1,22 +1,3 @@
-<?php
-
-// $city = $_GET['city'];
-// $price = $_GET['price'];
-// // $finalResult = DB::select("
-// //     SELECT  id,
-// //             property_name,
-// //             image,
-// //             gender,
-// //             city,
-// //             price ")
-// //     FROM property where city = $location;
-//     $FETCH_func_prop = "SELECT * FROM property WHERE city = $city AND price = $price";
-//     $result_prop = mysqli_query($conn,$FETCH_func_prop);
-
-?>
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,13 +6,13 @@
     <meta name="description" content="Interior-Design-Responsive-Website-Templates-Edge">
     <meta name="author" content="webThemez.com">
     <title>Home - Flat Responsive Bootstrap Theme</title>
-    <link rel="favicon" href="../../assets/images/favicon.png">
+    <link rel="favicon" href="../../../assets/images/favicon.png">
     <link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
-    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../assets/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../../assets/css/bootstrap-theme.css" media="screen">
-    <link rel="stylesheet" href="../../assets/css/style.css">
-    <link rel='stylesheet' id='camera-css'  href='../../assets/css/camera.css' type='text/css' media='all'>
+    <link rel="stylesheet" href="../../../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../../assets/css/bootstrap-theme.css" media="screen">
+    <link rel="stylesheet" href="../../../assets/css/style.css">
+    <link rel='stylesheet' id='camera-css'  href='../../../assets/css/camera.css' type='text/css' media='all'>
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="assets/js/html5shiv.js"></script>
@@ -70,7 +51,7 @@
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
             <a class="navbar-brand" href="index.html">
-                <img src="assets/images/logo.png" alt="Techro HTML5 template"></a>
+                <img src="../../../assets/images/logo.png" alt="Techro HTML5 template"></a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav pull-right mainNav">
@@ -114,11 +95,11 @@
     <div class="container">
         <div class="fluid_container">
             <div class="camera_wrap camera_emboss pattern_1" id="camera_wrap_4">
-                <div data-thumb="assets/images/slides/thumbs/img1.jpg" data-src="assets/images/slides/img1.jpg">
+                <div data-thumb="../../../assets/images/slides/thumbs/img1.jpg" data-src="../../../assets/images/slides/img1.jpg">
                 </div>
-                <div data-thumb="assets/images/slides/thumbs/img2.jpg" data-src="assets/images/slides/img2.jpg">
+                <div data-thumb="../../../assets/images/slides/thumbs/img2.jpg" data-src="../../../assets/images/slides/img2.jpg">
                 </div>
-                <div data-thumb="assets/images/slides/thumbs/img3.jpg" data-src="assets/images/slides/img3.jpg">
+                <div data-thumb="../../../assets/images/slides/thumbs/img3.jpg" data-src="../../../assets/images/slides/img3.jpg">
                 </div>
             </div><!-- #camera_wrap_3 -->
         </div><!-- .fluid_container -->
@@ -133,7 +114,7 @@
                 <h2 class="text-center text-uppercase last">Search for your desired house to rent</h2>
                 <p class="text-center last">You may search based on gender, city and range</p>
                 <div class="search-panel">
-                <form class="form-inline" method="get" action="{{ url('search-prop/city/price') }}" role="form">
+                <form class="form-inline" method="get" action="{{ url('search-prop/city/price/gender') }}" role="form">
                         <div class="form-group">
                         <select name="city" class="form-control" id="city" placeholder="City">
                           <option value="bayan lepas">Bayan Lepas</option>
@@ -150,12 +131,17 @@
                         </select>
                         </div>
                         <div class="form-group">
+                        <select name="gender" class="form-control" id="gender" placeholder="Gender">
+                          <option value="male">Male</option>
+                          <option value="female">Female</option>
+                        </select>
+                        </div>
+                        <div class="form-group">
                             <a href="search-prop/1">
                                 <button class="btn btnsearch">Search</button>
                             </a>  
                         </div>
-                    </form>
-                </div>
+                    </form>                </div>
             </div><!-- end .col-sm-12 -->
         </div><!-- ene .row -->
     </div>
@@ -180,19 +166,9 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <?php
+                  
 
-                    // echo json_encode($properties);
-                    $prop = array($properties);
-                    echo json_decode($properties);
-                    // foreach($properties as $p){
-                    //         print "$p\n";
-                    // }
-
-                    ?>
-
-
-                   {{--@foreach($properties as $i)
+                  @foreach($properties as $i)
                     <tr>
                   
                         <td>{{ $i->id}}</td>
@@ -216,7 +192,7 @@
                         </td>
                     </tr>
                     @endforeach
---}}
+
                     </tbody>
                 </table>
             </div>
@@ -270,15 +246,15 @@
 </footer>
 
 <!-- JavaScript libs are placed at the end of the document so the pages load faster -->
-<script src="../../assets/js/modernizr-latest.js"></script>
-<script type='text/javascript' src='../../assets/js/jquery.min.js'></script>
-<script type='text/javascript' src='../../assets/js/fancybox/jquery.fancybox.pack.js'></script>
+<script src="../../../assets/js/modernizr-latest.js"></script>
+<script type='text/javascript' src='../../../assets/js/jquery.min.js'></script>
+<script type='text/javascript' src='../../../assets/js/fancybox/jquery.fancybox.pack.js'></script>
 
-<script type='text/javascript' src='../../assets/js/jquery.mobile.customized.min.js'></script>
-<script type='text/javascript' src='../../assets/js/jquery.easing.1.3.js'></script>
-<script type='text/javascript' src='../../assets/js/camera.min.js'></script>
-<script src="../../assets/js/bootstrap.min.js"></script>
-<script src="../../assets/js/custom.js"></script>
+<script type='text/javascript' src='../../../assets/js/jquery.mobile.customized.min.js'></script>
+<script type='text/javascript' src='../../../assets/js/jquery.easing.1.3.js'></script>
+<script type='text/javascript' src='../../../assets/js/camera.min.js'></script>
+<script src="../../../assets/js/bootstrap.min.js"></script>
+<script src="../../../assets/js/custom.js"></script>
 <script>
     jQuery(function(){
 

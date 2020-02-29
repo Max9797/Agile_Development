@@ -13,11 +13,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <meta name="description" content="Interior-Design-Responsive-Website-Templates-Edge">
     <meta name="author" content="webThemez.com">
     <title>Home - Flat Responsive Bootstrap Theme</title>
-    <link rel="favicon" href="../../assets/images/favicon.png">
+    <link rel="favicon" href={{ URL::asset('public/assets/images/favicon.png') }}>
     <link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
-    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../assets/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../../assets/css/bootstrap-theme.css" media="screen">
+    <link rel="stylesheet" href={{ URL::asset('assets/css/bootstrap.min.css') }}>
+    <link rel="stylesheet" href={{ URL::asset('assets/css/font-awesome.min.css') }}>
+    <link rel="stylesheet" href={{ URL::asset('assets/css/bootstrap-theme.css') }} media="screen">
     <link rel="stylesheet" href="../../assets/css/style.css">
     <link rel='stylesheet' id='camera-css'  href='../../assets/css/camera.css' type='text/css' media='all'>
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -122,7 +122,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <h2 class="text-center text-uppercase last">Search for your desired house to rent</h2>
                 <p class="text-center last">You may search based on gender, city and range</p>
                 <div class="search-panel">
-                    <form class="form-inline" method="get" action="{{ url('search-prop/city/price') }}" role="form">
+                    <form class="form-inline" method="get" action="{{ url('search-prop/city/price/gender') }}" role="form">
                         <div class="form-group">
                         <select name="city" class="form-control" id="city" placeholder="City">
                           <option value="bayan lepas">Bayan Lepas</option>
@@ -136,6 +136,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                           <option value="200">200</option>
                           <option value="300">300</option>
                           <option value="400">400</option>
+                        </select>
+                        </div>
+                        <div class="form-group">
+                        <select name="gender" class="form-control" id="gender" placeholder="Gender">
+                          <option value="male">Male</option>
+                          <option value="female">Female</option>
                         </select>
                         </div>
                         <div class="form-group">

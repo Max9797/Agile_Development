@@ -23,7 +23,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/home', 'PropertiesController@displayHome')->name('home');
 
-Route::get('/search-prop/{city}/{price}','PropertiesController@search');
+Route::get('/search-prop/{city}/{price}/{gender}','PropertiesController@search');
 
 // Route::get('full-text-search', 'Full_text_search_Controller@index');
 

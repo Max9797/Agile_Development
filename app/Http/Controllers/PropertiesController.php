@@ -18,10 +18,12 @@ class PropertiesController extends Controller
         // $properties = Property::find([$city,$price]);
         $city = $request->query('city');
         $price = $request->query('price');
-        // return 'city = '.$city. ' price='.$price;
-        $properties = Property::where('city',$city)->where('price',$price)->first();
+        $gender = $request->query('gender');
+
+        // return 'city = '.$city. ' price='.$price. 'gender='.$gender ;
+        $properties = Property::where('gender',$gender)->where('city',$city)->where('price',$price)->get();
         return view('search-prop')->with('properties',$properties);
-    }
+        }
 
     public function displayHome(){
 

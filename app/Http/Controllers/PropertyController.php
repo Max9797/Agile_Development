@@ -66,7 +66,7 @@ class PropertyController extends Controller
         $property->save();
 
         //return redirect('propertiespage')->with('property', $property);
-        return redirect('propertiespage')->with('message', 'A property has been added successfully!');
+        return redirect('ownerhome')->with('message', 'A property has been added successfully!');
     }
 
     public function display(){
@@ -74,6 +74,7 @@ class PropertyController extends Controller
         
         return view('propertyform')->with('properties', $properties);
     }
+
     public function displayProperty($id){
         $properties = Property_Model::where('id',$id)->first();
         
@@ -139,12 +140,12 @@ class PropertyController extends Controller
         $property->save();
 
         //return redirect('propertiespage')->with('property', $property);
-        return redirect('propertiespage')->with('message', 'A property has been updated successfully!');
+        return redirect('ownerhome')->with('message', 'A property has been updated successfully!');
     }
 
     public function delete($id){
         $properties = Property_Model::find($id);
         $properties ->delete();
-        return redirect('/propertiespage')->with('message', 'A property has been deleted successfully!');
+        return redirect('/ownerhome')->with('message', 'A property has been deleted successfully!');
     }
 }

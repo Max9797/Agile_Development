@@ -35,7 +35,7 @@
                     <tr>
                   
                         <td>{{ $i->id}}</td>
-                        <td>{{ $i->property_name}}</td>
+                        <td>{{ $i->name}}</td>
                         <td>
                                 @if($i->image && $i->image != '')
                                 <img src = "{{ asset('assets/property-img/' . $i->image)}}" width = "100px;" height = "100px;" alt = "Image">
@@ -47,12 +47,13 @@
                         {{ $i->city}}
                         </td>
                         <td>
-                        {{ $i->gender}}
+                        {{ $i->gender_pref}}
                         </td>
                         <td>{{ $i->price}}</td>
-                        <td ><button type="button" class="btn btn-block btn-success">More Info</button>
-                        <button type="button" class="btn btn-block btn-success">Book</button>
-                        </td>
+                        <td> <a href="/viewproperty/{{ $i->id }}" class ="btn btn-success"> View </a><br>
+                                    <a href="/editproperty/{{ $i->id }}" class ="btn btn-warning"> Edit </a><br>
+                                    <a href="/deleteproperty/{{ $i->id }}" class ="btn btn-danger">Delete </a>
+                            </td>
                     </tr>
                     @endforeach
 

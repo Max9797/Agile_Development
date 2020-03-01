@@ -135,6 +135,10 @@
         </div>
     </div> 
 </body>
-<script type="text/javascript">
+@section('css')
+    <link rel="stylesheet" href="/css/admin_custom.css">
+@stop
 
-</script>
+@section('js')
+    <script> console.log('Hi!'); </script>
+@stop

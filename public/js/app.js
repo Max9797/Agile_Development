@@ -37418,10 +37418,14 @@ function normalizeComponent (
       // go through the normalizer
       options._injectStyles = hook
 <<<<<<< HEAD
+      // register for functioal component in vue file
+=======
+<<<<<<< HEAD
       // register for functional component in vue file
 =======
       // register for functioal component in vue file
 >>>>>>> b3bc68724e90acad2e36947ae50ab4917c87c3e2
+>>>>>>> 276fbcb856c1487445cd6e27ea9b74cb73065abb
       var originalRender = options.render
       options.render = function renderWithStyleInjection (h, context) {
         hook.call(context)
@@ -49666,12 +49670,17 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 <<<<<<< HEAD
+__webpack_require__(/*! C:\xampp\htdocs\Projects\Agile_Development\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\Projects\Agile_Development\resources\sass\app.scss */"./resources/sass/app.scss");
+=======
+<<<<<<< HEAD
 __webpack_require__(/*! C:\xampp\htdocs\authtest\resources\js\app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! C:\xampp\htdocs\authtest\resources\sass\app.scss */"./resources/sass/app.scss");
 =======
 __webpack_require__(/*! C:\xampp\htdocs\Laravel\Max\resources\js\app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! C:\xampp\htdocs\Laravel\Max\resources\sass\app.scss */"./resources/sass/app.scss");
 >>>>>>> b3bc68724e90acad2e36947ae50ab4917c87c3e2
+>>>>>>> 276fbcb856c1487445cd6e27ea9b74cb73065abb
 
 
 /***/ })

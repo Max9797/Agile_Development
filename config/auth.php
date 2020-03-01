@@ -50,10 +50,15 @@ return [
             'driver' => 'session',
             'provider' => 'admins',
         ],
-        
+
         'student' => [
             'driver' => 'session',
-            'provider' => 'student',
+            'provider' => 'students',
+        ],
+
+        'tenant' => [
+            'driver' => 'session',
+            'provider' => 'tenants',
         ],
 
         'owner' => [
@@ -63,7 +68,6 @@ return [
 
     ],
 
-    
     /*
     |--------------------------------------------------------------------------
     | User Providers
@@ -97,6 +101,15 @@ return [
             'model' => App\Student::class,
         ],
 
+        'tenants' => [
+            'driver' => 'eloquent',
+            'model' => App\Tenant::class,
+        ],
+
+        // 'users' => [
+        //     'driver' => 'database',
+        //     'table' => 'users',
+        // ],
         'owners' => [
             'driver' => 'eloquent',
             'model' => App\Owner::class,

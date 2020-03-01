@@ -28,4 +28,5 @@ class HomeController extends Controller
     public function updateRole(Request $request){
 
     }
+
 }

@@ -9,7 +9,7 @@
 @stop
 
 @section('content')
-    <p>Admin</p>
+    <p>Student</p>
 @stop
 
 @section('css')

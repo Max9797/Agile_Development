@@ -17,7 +17,7 @@ Route::get('/','PropertiesController@display');
 Auth::routes();
 
 
-Route::get('/home', 'PropertiesController@displayHome')->name('home');
+Route::get('/ownerhome', 'PropertiesController@displayHome');
 
 Route::get('/search-prop/{city}/{price}/{gender}','PropertiesController@search');
 

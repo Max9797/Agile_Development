@@ -29,7 +29,7 @@ class PropertiesController extends Controller
 
         $properties = Property::all();
         
-        return view('home')->with('properties', $properties);
+        return view('ownerhome')->with('properties', $properties);
     }
 
     public function store(Request $request)

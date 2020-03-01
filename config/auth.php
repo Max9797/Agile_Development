@@ -60,6 +60,12 @@ return [
             'driver' => 'session',
             'provider' => 'tenants',
         ],
+
+        'owner' => [
+            'driver' => 'session',
+            'provider' => 'owner',
+        ],
+
     ],
 
     /*
@@ -104,6 +110,11 @@ return [
         //     'driver' => 'database',
         //     'table' => 'users',
         // ],
+        'owners' => [
+            'driver' => 'eloquent',
+            'model' => App\Owner::class,
+        ],
+
     ],
 
     /*

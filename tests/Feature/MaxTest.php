@@ -4,7 +4,6 @@ namespace Tests\Feature;
 
 
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use App\User;
 use Laravel\Passport\Passport;
@@ -17,15 +16,13 @@ class MaxTest extends TestCase
      *
      * @return void
      */
-
-    use RefreshDatabase;
     
     public function testLoginPageiscorrect()
     {
         $response= $this->get('/login');
 
         $response->assertStatus(200);
-        $response->assertSee('Sign in to start');
+        $response->assertSee('Forgot Your Password?');
     }
 
     public function testRegisterPageiscorrect()
@@ -33,14 +30,23 @@ class MaxTest extends TestCase
         $response= $this->get('/register');
 
         $response->assertStatus(200);
-        $response->assertSee('Register a new membership');
-        $response->assertSee('membership');
+        $response->assertSee('Register');
+    
     }
 
-
-    public function testuserLogin()
+    public function testHomePageiscorrect()
     {
-        $response=$this->get('/home')
+        $response= $this->get('/');
+
+        $response->assertStatus(200);
+        $response->assertSee('About');
+        $response->assertSee('Services');
+    
+    }
+
+    public function testAuthenticationWorking()
+    {
+        $response=$this->get('/student')
         ->assertRedirect('/login');  
     }
 }

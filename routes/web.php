@@ -22,7 +22,11 @@ Route::get('/home', 'PropertiesController@displayHome')->name('home');
 Route::get('/search-prop/{city}/{price}/{gender}','PropertiesController@search');
 
 Auth::routes();
+
+Route::group(['middleware' => 'auth'], function () {
 Route::get('/admin', 'AdminController@index')->name('admin')->middleware('admin');
 Route::get('/owner', 'OwnerController@index')->name('owner')->middleware('owner');
 Route::get('/student', 'StudentController@index')->name('student')->middleware('student');
+});
+
 

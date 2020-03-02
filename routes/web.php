@@ -37,7 +37,7 @@ Route::get('/viewproperty/{id}','PropertyController@displayProperty');
 Auth::routes();
 
 
-Route::get('/ownerhome', 'PropertiesController@displayHome');
+//Route::get('/ownerhome', 'PropertiesController@displayHome');
 
 Route::get('/search-prop/{city}/{price}/{gender}','PropertiesController@search');
 
@@ -46,6 +46,7 @@ Auth::routes();
 Route::group(['middleware' => 'auth'], function () {
 Route::get('/admin', 'AdminController@index')->name('admin')->middleware('admin');
 Route::get('/owner', 'OwnerController@index')->name('owner')->middleware('owner');
+Route::get('/owner', 'PropertiesController@displayHome');
 Route::get('/student', 'StudentController@index')->name('student')->middleware('student');
 });
 

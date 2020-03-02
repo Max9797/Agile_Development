@@ -44,7 +44,9 @@
 
                             <div class="col-md-6">
                                 <input id="role" type="number" min="1" max="3" class="form-control @error('role') is-invalid @enderror" name="role" value="{{ old('role') }}" required autocomplete="role" autofocus>
-
+                                1 for admin
+                                2 for owner
+                                3 for student
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

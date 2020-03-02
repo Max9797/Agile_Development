@@ -2,13 +2,19 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
 use App\User;
-use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Admin;
+use App\Student;
+use App\Tenant;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+<<<<<<< HEAD
+use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
+=======
 use Auth;
+>>>>>>> 56698883bfce113357daeea6f2fc53627343c2b7
 
 class RegisterController extends Controller
 {
@@ -24,7 +30,6 @@ class RegisterController extends Controller
     */
 
     use RegistersUsers;
-
     /**
      * Where to redirect users after registration.
      *
@@ -81,9 +86,29 @@ class RegisterController extends Controller
     }
 
     /**
-     * Create a new user instance after a valid registration.
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function showAdminRegisterForm()
+    {
+        return view('auth.register', ['url' => 'admin']);
+    }
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function showTenantRegisterForm()
+    {
+        return view('auth.register', ['url' => 'tenant']);
+    }
+
+    public function showStudentRegisterForm()
+    {
+        return view('auth.register', ['url' => 'student']);
+    }
+
+    /** Create a new user instance after a valid registration.
+     * @param array $data
      *
-     * @param  array  $data
      * @return \App\User
      */
     protected function create(array $data)
@@ -94,5 +119,48 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'role' => $data['role']
         ]);
+    }
+
+    /**
+     * @param Request $request
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    protected function createAdmin(Request $request)
+    {
+        $this->validator($request->all())->validate();
+        Admin::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
+        return redirect()->intended('login/admin');
+    }
+
+    /**
+     * @param Request $request
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    protected function createTenant(Request $request)
+    {
+        $this->validator($request->all())->validate();
+        Tenant::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
+        return redirect()->intended('login/tenant');
+    }
+
+    protected function createStudent(Request $request)
+    {
+        $this->validator($request->all())->validate();
+        Student::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
+        return redirect()->intended('login/student');
     }
 }

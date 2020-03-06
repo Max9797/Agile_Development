@@ -5,7 +5,6 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-<<<<<<< HEAD
   <h1>Dashboard</h1>
 @stop
 
@@ -148,7 +147,6 @@
 
 
 @stop
-=======
     <h1>Dashboard</h1>
 @stop
 
@@ -218,4 +216,3 @@
 @section('js')
     <script> console.log('Hi!'); </script>
 @stop
->>>>>>> 276fbcb856c1487445cd6e27ea9b74cb73065abb

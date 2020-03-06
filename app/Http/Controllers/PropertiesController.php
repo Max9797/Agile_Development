@@ -35,7 +35,7 @@ class PropertiesController extends Controller
 
     public function displayHome(){
 
-        $properties = Property_Model::all();
+        $properties = Property_model::all();
         
         return view('ownerhome')->with('properties', $properties);
     }

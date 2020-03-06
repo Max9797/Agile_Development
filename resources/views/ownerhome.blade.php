@@ -13,6 +13,12 @@
     <div class="col-sm-12">
         <div class="card">
 
+        @if(session()->has('id'))
+         <?php echo 'got'; ?>
+         @else
+         <?php echo 'none'; ?>
+        @endif
+
             <!-- /.card-header -->
             <div class="card-body">
             <div style='float:right;'>

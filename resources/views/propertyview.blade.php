@@ -1,16 +1,12 @@
-<html>
-    <head>
-        <meta charset ="UTF-8">
-        <meta name="viewport" content="width-device-width, initial-scale=1.0">
-        <meta http-equiv= "X-UA-Compatible" content="ie=edge">
-        <title>Document</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    </head>
-    <body>
-        <div class = "container">
+@extends('adminlte::page')
+
+@section('title', 'Dashboard')
+
+
+@section('content')
             <div class ="jumbotron">
                 @if($properties->image && $properties->image != '')
-                    <center><img src = "{{ asset('uploads/property/' . $properties->image)}}" width = "300px;" height = "300px;" alt = "Image"></center>
+                    <center><img src = "{{ asset('assets/property-img/' . $properties->image)}}" width = "300px;" height = "300px;" alt = "Image"></center>
                 @else
                     <center><p>No Image</p></center>
                 @endif
@@ -95,6 +91,12 @@
                 <br>
                 <center><a href ="/editproperty/{{$properties->id}}" class = "btn btn-warning">EDIT</a></center>
             </div>
-        </div>  
-    </body>
-</html>
+        @stop
+
+@section('css')
+    <link rel="stylesheet" href="/css/admin_custom.css">
+@stop
+
+@section('js')
+    <script> console.log('Hi!'); </script>
+@stop

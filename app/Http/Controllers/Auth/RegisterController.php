@@ -9,12 +9,9 @@ use App\Tenant;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-<<<<<<< HEAD
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
-=======
 use Auth;
->>>>>>> 56698883bfce113357daeea6f2fc53627343c2b7
 
 class RegisterController extends Controller
 {

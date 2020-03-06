@@ -62,25 +62,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav pull-right mainNav">
-                <li class="active"><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="services.html">Services</a></li>
-
-                <li><a href="projects.html">Projects</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="sidebar-right.html">Right Sidebar</a></li>
-                        <li><a href="#">Dummy Link1</a></li>
-                        <li><a href="#">Dummy Link2</a></li>
-                        <li><a href="#">Dummy Link3</a></li>
-                    </ul>
-                </li>
-                <li><a href="contact.html">Contact</a></li>
-                <li>
+                <li class="active"><a href="{{ url('/') }}">Home</a></li>
+                                <li>
                 @if (Route::has('login'))
                         @auth
-                            <a href="{{ url('/home') }}">Home</a>
+                            <a href="{{ url('/ownerhome') }}">Dashboard</a>
                         @else
                             <a href="{{ route('login') }}">Login</a>
                 </li><li>
@@ -209,39 +195,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 </div>
 
 <footer id="footer">
-    <div class="container">
-        <div class="social text-center">
-            <a href="#"><i class="fa fa-twitter"></i></a>
-            <a href="#"><i class="fa fa-facebook"></i></a>
-            <a href="#"><i class="fa fa-dribbble"></i></a>
-            <a href="#"><i class="fa fa-flickr"></i></a>
-            <a href="#"><i class="fa fa-github"></i></a>
-        </div>
-
-        <div class="clear"></div>
-        <!--CLEAR FLOATS-->
-    </div>
     <div class="footer2">
         <div class="container">
             <div class="row">
-
-                <div class="col-md-6 panel">
-                    <div class="panel-body">
-                        <p class="simplenav">
-                            <a href="index.html">Home</a> |
-                            <a href="about.html">About</a> |
-                            <a href="services.html">Services</a> |
-
-                            <a href="projects.html">Projects</a> |
-                            <a href="contact.html">Contact</a>
-                        </p>
-                    </div>
-                </div>
-
-                <div class="col-md-6 panel">
+                <div class="col-md-12 panel">
                     <div class="panel-body">
                         <p class="text-right">
-                            Copyright &copy; 2019. <a href="https://webthemez.com/tag/free" target="_blank">HTML Templates</a> by WebThemez.com
+                            Copyright &copy; 2019.
                         </p>
                     </div>
                 </div>
